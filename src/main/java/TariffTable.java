@@ -3,9 +3,9 @@
 //5 September 2021
 
 public class TariffTable {
-    public ParkingTariff[] tickets;
+    private ParkingTariff[] tickets;
     private int index;
-    public ParkingTariff toAdd;
+    private ParkingTariff toAdd;
     private String all;
 
 
