@@ -65,7 +65,7 @@ public class Employee {
     public List<Shift> get(Week w) {
         List<Shift> sameWeek = new ArrayList<Shift>();
         for (Shift f : shifts) {
-            if (worked(w)) {
+            if (f.inWeek(w)) {
                 sameWeek.add(f);
             }
         }
