@@ -21,7 +21,7 @@ public class TariffTable {
         if (index == 0) {
             tickets[index] = toAdd;
             index++;
-        } else if ((tickets[index - 1].getTime()).precedes((tickets[index].getTime()))) {
+        } else if ((tickets[index - 1].getTime()).precedes(period)) {
             tickets[index] = toAdd;
             index++;
         } else {
