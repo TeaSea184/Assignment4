@@ -16,42 +16,43 @@ public class Employee {
         this.name = name;
         this.uid = uid;
     }
-
+    //return name
     public String name() {
         return name;
     }
-
+    //return UID
     public String UID() {return uid;}
-
+    //indicate start of shift
     public void signIn(Date d, Time t) {
         startTime = new CalendarTime(d, t);
     }
-
+    //indicate end of shift
     public void signOut(Date d, Time t) {
         endTime = new CalendarTime(d, t);
         Shift newShift = new Shift(startTime, endTime);
         shifts = new ArrayList<Shift>();
         shifts.add(newShift);
     }
-
+    //check if an employee is present
     public boolean present() {
         if ((startTime != null) && (endTime == null)) {
             return true;
         }
         return false;
     }
+    //check if employee is present on a date
     public boolean present(Date d){
         return (startTime.equals(d));
     }
-
+    //check if Employee worked on a date
     public boolean worked(Date d) {
         return (startTime.date().equals(d));
     }
-
+    //check if Employee worked in a week
     public boolean worked(Week w) {
         return (w.includes(startTime.date()));
     }
-
+    //return a list of shifts worked on a date
     public List<Shift> get(Date d) {
         List<Shift> sameDates = new ArrayList<Shift>();
         for (Shift f : shifts) {
@@ -61,7 +62,7 @@ public class Employee {
         }
         return sameDates;
     }
-
+    //return a list of shifts worked in a week
     public List<Shift> get(Week w) {
         List<Shift> sameWeek = new ArrayList<Shift>();
         for (Shift f : shifts) {
@@ -71,15 +72,15 @@ public class Employee {
         }
         return sameWeek;
     }
-
+    // return the amount of hours worked in a week
     public Duration hours(Week w) {
         List<Shift> sameWeek = get(w);
-        long totalHoursWorked = 0l;
+        Duration totalHoursWorked = null;
         for (Shift f : sameWeek) {
             Duration shiftTime = f.length();
-            totalHoursWorked += shiftTime.intValue("hour");
+            totalHoursWorked.add(shiftTime);
         }
-        return new Duration("hour",totalHoursWorked);
+        return totalHoursWorked;
     }
 
 
