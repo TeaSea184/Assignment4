@@ -55,7 +55,7 @@ public class Employee {
     public List<Shift> get(Date d) {
         List<Shift> sameDates = new ArrayList<Shift>();
         for (Shift f : shifts) {
-            if (worked(d)) {
+            if (f.includesDate(d)) {
                 sameDates.add(f);
             }
         }
@@ -76,7 +76,7 @@ public class Employee {
         List<Shift> sameWeek = get(w);
         long totalHoursWorked = 0l;
         for (Shift f : sameWeek) {
-            Duration shiftTime = f.finish().subtract(f.start());
+            Duration shiftTime = f.length();
             totalHoursWorked += shiftTime.intValue("hour");
         }
         return new Duration("hour",totalHoursWorked);
