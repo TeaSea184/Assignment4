@@ -3,7 +3,7 @@
 //8 September 2021
 
 import java.util.*;
-import java.util.Date;
+
 
 public class Employee {
     private String name;
@@ -15,9 +15,6 @@ public class Employee {
     public Employee(String name, String uid) {
         this.name = name;
         this.uid = uid;
-
-        ;
-
     }
 
     public String name() {
