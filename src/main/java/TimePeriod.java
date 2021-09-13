@@ -1,8 +1,8 @@
 
 
 /**
- * A src.main.java.TimePeriod is a src.main.java.Duration range.  It has an inclusive lower bound, l, and an exclusive upper bound, u.
- * A src.main.java.Duration, d, falls within the range if l<=d<u.
+ * A .TimePeriod is a .Duration range.  It has an inclusive lower bound, l, and an exclusive upper bound, u.
+ * A .Duration, d, falls within the range if l<=d<u.
  *
  * @author Stephan Jamieson
  * @version 1/8/19
@@ -13,39 +13,39 @@ public class TimePeriod {
     private final Duration upperBound;
 
     /**
-     * Create a src.main.java.TimePeriod with the given inclusive lower bound and exclusive upper bound.
+     * Create a .TimePeriod with the given inclusive lower bound and exclusive upper bound.
      */
     public TimePeriod(final Duration lowerBound, final Duration upperBound) {
         if (lowerBound.compareTo(upperBound) >= 0) {
-            throw new IllegalArgumentException("src.main.java.TimePeriod: Lower bound must be less than the upper bound.");
+            throw new IllegalArgumentException(".TimePeriod: Lower bound must be less than the upper bound.");
         }
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
     }
 
     /**
-     * Obtain the lower bound for this src.main.java.TimePeriod.
+     * Obtain the lower bound for this .TimePeriod.
      */
     public Duration lowerBound() {
         return lowerBound;
     }
 
     /**
-     * Obtain the upper bound for this src.main.java.TimePeriod.
+     * Obtain the upper bound for this .TimePeriod.
      */
     public Duration upperBound() {
         return upperBound;
     }
 
     /**
-     * Determine whether the given value falls within this src.main.java.TimePeriod i.e. whether upperBound()>value>=lowerBound().
+     * Determine whether the given value falls within this .TimePeriod i.e. whether upperBound()>value>=lowerBound().
      */
     public boolean includes(final Duration value) {
         return lowerBound.compareTo(value) <= 0 && value.compareTo(upperBound) < 0;
     }
 
     /**
-     * Determine whether this src.main.java.TimePeriod precedes the other src.main.java.TimePeriod. i.e. this.upperBound()<=other.lowerBound();
+     * Determine whether this .TimePeriod precedes the other .TimePeriod. i.e. this.upperBound()<=other.lowerBound();
      */
     public boolean precedes(final TimePeriod other) {
         return this.upperBound().compareTo(other.lowerBound()) <= 0;
@@ -61,7 +61,7 @@ public class TimePeriod {
     }
 
     /**
-     * Obtain a string representation of this src.main.java.TimePeriod of the form "[<hour> hours <minute> minutes...<hour> hours <minute>minutes]".
+     * Obtain a string representation of this .TimePeriod of the form "[<hour> hours <minute> minutes...<hour> hours <minute>minutes]".
      */
     public String toString() {
         return String.format("[%s .. %s]", Duration.format(lowerBound(), "minute"), Duration.format(upperBound(), "minute"));

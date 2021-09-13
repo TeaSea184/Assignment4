@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- * A src.main.java.Duration object represents a length of time (with millisecond accuracy).
+ * A .Duration object represents a length of time (with millisecond accuracy).
  *
  * @author Stephan Jamieson
  * @version 28/05/2010
@@ -17,16 +17,16 @@ public class Duration implements Comparable<Duration> {
     private final long milliseconds;
 
     /**
-     * Create a src.main.java.Duration object that represents the given quantity of milliseconds.
+     * Create a .Duration object that represents the given quantity of milliseconds.
      */
     public Duration(long quantity) {
         this.milliseconds = quantity;
     }
 
     /**
-     * Create a src.main.java.Duration object that represents the given quantity of the given time unit.
+     * Create a .Duration object that represents the given quantity of the given time unit.
      * <p>
-     * For example, the expression <em>new src.main.java.Duration("minutes", 4)</em> creates a src.main.java.Duration object
+     * For example, the expression <em>new .Duration("minutes", 4)</em> creates a .Duration object
      * that represents 4 minutes.
      * <p>
      * Permissible time units are: "millisecond", "second", "minute", "hour", "day".
@@ -36,14 +36,14 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Create a src.main.java.Duration object that represents the given quantity of the given time unit.
+     * Create a .Duration object that represents the given quantity of the given time unit.
      */
     public Duration(TimeUnit timeUnit, long quantity) {
         this.milliseconds = timeUnit.multiplyBy(quantity).intValue();
     }
 
     /**
-     * Create a src.main.java.Duration object that represents the same length of time as that given.
+     * Create a .Duration object that represents the same length of time as that given.
      */
     public Duration(Duration duration) {
         this.milliseconds = duration.intValue();
@@ -58,7 +58,7 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Obtain an integer value that represents that part of this src.main.java.Duration which may be expressed
+     * Obtain an integer value that represents that part of this .Duration which may be expressed
      * as a multiple of the given time unit.
      * <p>
      * For example, given a duration object d that represents 4 minutes and 30 seconds,
@@ -71,7 +71,7 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Obtain an integer value that represents that part of this src.main.java.Duration which may be expressed
+     * Obtain an integer value that represents that part of this .Duration which may be expressed
      * as a multiple of the given time unit.
      */
     public long intValue(TimeUnit timeUnit) {
@@ -86,7 +86,7 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Obtain a double value that represents this src.main.java.Duration expressed as a multiple of the given
+     * Obtain a double value that represents this .Duration expressed as a multiple of the given
      * time unit.
      * <p>
      * For example, given a duration object d that represents 4 minutes and 30 seconds,
@@ -97,7 +97,7 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Obtain a double value that represents this src.main.java.Duration expressed as a multiple of the given
+     * Obtain a double value that represents this .Duration expressed as a multiple of the given
      * time unit.
      */
     public double doubleValue(TimeUnit timeUnit) {
@@ -105,28 +105,28 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Obtain the sum of this src.main.java.Duration and the given src.main.java.Duration.
+     * Obtain the sum of this .Duration and the given .Duration.
      */
     public Duration add(Duration other) {
         return new Duration(this.intValue() + other.intValue());
     }
 
     /**
-     * Obtain the result of subtracting the given src.main.java.Duration from this src.main.java.Duration.
+     * Obtain the result of subtracting the given .Duration from this .Duration.
      */
     public Duration subtract(Duration other) {
         return new Duration(this.intValue() - other.intValue());
     }
 
     /**
-     * Obtain the result of multiplying this src.main.java.Duration by the given value.
+     * Obtain the result of multiplying this .Duration by the given value.
      */
     public Duration multiplyBy(long value) {
         return new Duration(this.intValue() * value);
     }
 
     /**
-     * Obtain the result of multiplying this src.main.java.Duration by the given value.
+     * Obtain the result of multiplying this .Duration by the given value.
      * The result is rounded to the nearest millisecond.
      */
     public Duration multiplyBy(double value) {
@@ -134,7 +134,7 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Obtain the result of dividing this src.main.java.Duration by the given value.
+     * Obtain the result of dividing this .Duration by the given value.
      * The result is rounded to the nearest millisecond.
      */
     public Duration divideBy(long value) {
@@ -155,28 +155,28 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Perform an integer division of this src.main.java.Duration by the given src.main.java.Duration.
+     * Perform an integer division of this .Duration by the given .Duration.
      */
     public long divideBy(Duration other) {
         return this.intValue() / other.intValue();
     }
 
     /**
-     * Obtain the remainder of an integer division of this src.main.java.Duration by the given src.main.java.Duration.
+     * Obtain the remainder of an integer division of this .Duration by the given .Duration.
      */
     public Duration remainder(Duration modulus) {
         return new Duration(this.intValue() % modulus.intValue());
     }
 
     /**
-     * Obtain an absolute (unsigned) instance of this src.main.java.Duration.
+     * Obtain an absolute (unsigned) instance of this .Duration.
      */
     public Duration abs() {
         return new Duration(Math.abs(this.intValue()));
     }
 
     /**
-     * Returns true if this src.main.java.Duration has a negative value, false otherwise.
+     * Returns true if this .Duration has a negative value, false otherwise.
      */
     public boolean isNegative() {
         return this.intValue() < 0;
@@ -200,7 +200,7 @@ public class Duration implements Comparable<Duration> {
     /**
      * Determine whether object o is equivalent to this object.
      * <p>
-     * Object o is equivalent if it is a src.main.java.Duration of the same value as this src.main.java.Duration.
+     * Object o is equivalent if it is a .Duration of the same value as this .Duration.
      */
     public boolean equals(Object o) {
         if (!(o instanceof Duration)) {
@@ -212,10 +212,10 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Returns a representation of this src.main.java.Duration as quantities of the given series of units.
+     * Returns a representation of this .Duration as quantities of the given series of units.
      * Given a unit at units[i], units[i+1] must be a sub unit.
      * <p>
-     * Example {em>(new src.main.java.Duration("second", 93873)).split("hour", "minute", "second")</em> returns an array containing
+     * Example {em>(new .Duration("second", 93873)).split("hour", "minute", "second")</em> returns an array containing
      * the values 26, 4, 33 i.e. 26 hours with remainder of 44 minutes with remainder of 33 seconds.
      */
     public static long[] split(Duration duration, final String... units) {
@@ -227,10 +227,10 @@ public class Duration implements Comparable<Duration> {
     }
 
     /**
-     * Returns a representation of this src.main.java.Duration as quantities of the given series of units.
+     * Returns a representation of this .Duration as quantities of the given series of units.
      * Given a unit at units[i], units[i+1] must be a sub unit.
      * <p>
-     * Example <em>(new src.main.java.Duration(src.main.java.TimeUnit.SECOND, 93873)).split(src.main.java.TimeUnit.HOUR, src.main.java.TimeUnit.MINUTE, src.main.java.TimeUnit.SECOND)</em> returns an array containing
+     * Example <em>(new .Duration(.TimeUnit.SECOND, 93873)).split(.TimeUnit.HOUR, .TimeUnit.MINUTE, .TimeUnit.SECOND)</em> returns an array containing
      * the values 26, 4, 33 i.e. 26 hours with remainder of 44 minutes with remainder of 33 seconds.
      */
     public static long[] split(Duration duration, final TimeUnit... timeUnits) {
@@ -258,8 +258,8 @@ public class Duration implements Comparable<Duration> {
      * Obtain a formatted string that expresses the given duration as a series of non-zero time unit quantities from the largest applicable
      * to the given smallest.
      * <p>
-     * Example: Given <em>src.main.java.Duration d=new src.main.java.Duration("second", 88893); )</em>, the expression <em>src.main.java.Duration(d, "second")</em> returns the
-     * string "1 day 41 minutes 33 seconds", while <em>src.main.java.Duration(d, "minute")</em> returns the string "1 day 41 minutes".
+     * Example: Given <em>.Duration d=new .Duration("second", 88893); )</em>, the expression <em>.Duration(d, "second")</em> returns the
+     * string "1 day 41 minutes 33 seconds", while <em>.Duration(d, "minute")</em> returns the string "1 day 41 minutes".
      */
     public static String format(final Duration duration, final String smallestUnit) {
         return Duration.format(duration, TimeUnit.parse(smallestUnit));
@@ -269,8 +269,8 @@ public class Duration implements Comparable<Duration> {
      * Obtain a formatted string that expresses the given duration as a series of non-zero time unit quantities from the largest applicable
      * to the given smallest.
      * <p>
-     * Example: Given <em>src.main.java.Duration d=new src.main.java.Duration(src.main.java.TimeUnit.SECOND, 88893); )</em>, the expression <em>src.main.java.Duration(d, src.main.java.TimeUnit.SECOND)</em> returns the
-     * string "1 day 41 minutes 33 seconds", while <em>src.main.java.Duration(d, src.main.java.TimeUnit.MINUTE)</em> returns the string "1 day 41 minutes".
+     * Example: Given <em>.Duration d=new .Duration(.TimeUnit.SECOND, 88893); )</em>, the expression <em>.Duration(d, .TimeUnit.SECOND)</em> returns the
+     * string "1 day 41 minutes 33 seconds", while <em>.Duration(d, .TimeUnit.MINUTE)</em> returns the string "1 day 41 minutes".
      */
     public static String format(final Duration duration, final TimeUnit smallestUnit) {
         // Select subset of time units.
@@ -290,8 +290,8 @@ public class Duration implements Comparable<Duration> {
     /**
      * Obtain a formatted string that expresses the given duration as a series of no-zero quantities of the given time units.
      * <p>
-     * Example: Given <em>src.main.java.Duration d=new src.main.java.Duration("second", 88893); )</em>, the expression <em>src.main.java.Duration(d, "hour", "minute", "second")</em> returns the
-     * string "24 hours 41 minutes 33 seconds", while <em>src.main.java.Duration(d, "hour", "second")</em> returns the string "24 hours 2493 seconds".
+     * Example: Given <em>.Duration d=new .Duration("second", 88893); )</em>, the expression <em>.Duration(d, "hour", "minute", "second")</em> returns the
+     * string "24 hours 41 minutes 33 seconds", while <em>.Duration(d, "hour", "second")</em> returns the string "24 hours 2493 seconds".
      */
     public static String format(final Duration duration, final String... units) {
         final TimeUnit[] timeUnits = new TimeUnit[units.length];
@@ -304,9 +304,9 @@ public class Duration implements Comparable<Duration> {
     /**
      * Obtain a formatted string that expresses the given duration as a series of no-zero quantities of the given time units.
      * <p>
-     * Example: Given <em>src.main.java.Duration d=new src.main.java.Duration(src.main.java.TimeUnit.SECOND, 88893); )</em>, the expression
-     * <em>src.main.java.Duration(d, src.main.java.TimeUnit.HOUR, src.main.java.TimeUnit.MINUTE, src.main.java.TimeUnit.SECOND)</em> returns the string "24 hours 41 minutes 33 seconds", while
-     * <em>src.main.java.Duration(d, src.main.java.TimeUnit.HOUR, src.main.java.TimeUnit.SECOND)</em> returns the string "24 hours 2493 seconds".
+     * Example: Given <em>.Duration d=new .Duration(.TimeUnit.SECOND, 88893); )</em>, the expression
+     * <em>.Duration(d, .TimeUnit.HOUR, .TimeUnit.MINUTE, .TimeUnit.SECOND)</em> returns the string "24 hours 41 minutes 33 seconds", while
+     * <em>.Duration(d, .TimeUnit.HOUR, .TimeUnit.SECOND)</em> returns the string "24 hours 2493 seconds".
      */
     public static String format(final Duration duration, final TimeUnit... timeUnits) {
         final StringBuilder builder = new StringBuilder();

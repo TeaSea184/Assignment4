@@ -5,12 +5,12 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
- * The src.main.java.Week class represents ISO weeks.
+ * The .Week class represents ISO weeks.
  * https://en.wikipedia.org/wiki/ISO_week_date
  * <p>
- * A src.main.java.Week comprises a number and year i.e. the number of the week in that year.
+ * A .Week comprises a number and year i.e. the number of the week in that year.
  * <p>
- * Weeks start on a Monday. The first src.main.java.Week of a year is the one in which the first Thursday of the year falls.
+ * Weeks start on a Monday. The first .Week of a year is the one in which the first Thursday of the year falls.
  *
  * @author Stephan Jamieson
  * @version 27/3/2011
@@ -21,7 +21,7 @@ public class Week implements Comparable<Week> {
     private final int year;
 
     /**
-     * Create a src.main.java.Week object representing the <em>n</em>th week in year <em>y</em>.
+     * Create a .Week object representing the <em>n</em>th week in year <em>y</em>.
      */
     public Week(final int n, final int y) {
         this.number = n;
@@ -29,7 +29,7 @@ public class Week implements Comparable<Week> {
     }
 
     /**
-     * Create a src.main.java.Week object from a string of the form "&lt;number&gt;/&lt;year&gt;" where "&gt;number&lt;"
+     * Create a .Week object from a string of the form "&lt;number&gt;/&lt;year&gt;" where "&gt;number&lt;"
      * is a number of up to two digits, and "&gt;year&lt;" is a 4-digit number.
      */
     public Week(final String string) {
@@ -38,15 +38,15 @@ public class Week implements Comparable<Week> {
             this.number = scanner.nextInt();
             this.year = scanner.nextInt();
             if (this.number < 0 || this.number > Week.weeksInYearISO(this.year)) {
-                throw new IllegalArgumentException("src.main.java.Week: week number out of range.");
+                throw new IllegalArgumentException(".Week: week number out of range.");
             }
         } catch (NoSuchElementException noSucElExcep) {
-            throw new IllegalArgumentException("src.main.java.Week format: \"[d]d/dddd\"");
+            throw new IllegalArgumentException(".Week format: \"[d]d/dddd\"");
         }
     }
 
     /**
-     * Obtain the src.main.java.Week number.
+     * Obtain the .Week number.
      */
     public int number() {
         return number;
@@ -81,7 +81,7 @@ public class Week implements Comparable<Week> {
     }
 
     /**
-     * Returns true if <em>o</em> is a src.main.java.Week object that represents the same ISO week as this object.
+     * Returns true if <em>o</em> is a .Week object that represents the same ISO week as this object.
      */
     public boolean equals(final Object o) {
         if (!(o instanceof Week)) {
@@ -93,8 +93,8 @@ public class Week implements Comparable<Week> {
     }
 
     /**
-     * Compare this week to other week. Returns a -ve value if this src.main.java.Week precedes the other src.main.java.Week, zero if they represent the same
-     * week, and a +ve value if the other src.main.java.Week precedes this.
+     * Compare this week to other week. Returns a -ve value if this .Week precedes the other .Week, zero if they represent the same
+     * week, and a +ve value if the other .Week precedes this.
      */
     public int compareTo(final Week other) {
         int result = this.year() - other.year();
@@ -115,7 +115,7 @@ public class Week implements Comparable<Week> {
     }
 
     /**
-     * Obtain a String representation of this src.main.java.Week of the form "&lt;number&gt;/&lt;year&gt;".
+     * Obtain a String representation of this .Week of the form "&lt;number&gt;/&lt;year&gt;".
      */
     public String toString() {
         return number + "/" + year;
@@ -165,14 +165,14 @@ public class Week implements Comparable<Week> {
     }
 
     /**
-     * Obtain the src.main.java.Week in which the given date falls.
+     * Obtain the .Week in which the given date falls.
      */
     public static Week weekOf(final Date date) {
         return new Week(dayOfYearISO(date) / 7 + 1, date.getYear());
     }
 
     /**
-     * Determine whether the given string is a valid representation of an ISO src.main.java.Week.
+     * Determine whether the given string is a valid representation of an ISO .Week.
      */
     public static boolean validFormat(final String string) {
         return Pattern.matches("\\s*\\d{1,2}/\\d{4}\\s*", string);

@@ -3,7 +3,7 @@
 import java.util.Scanner;
 
 /**
- * A src.main.java.Shift object records the shift worked by an employee on a given date.
+ * A .Shift object records the shift worked by an employee on a given date.
  *
  * @author Stephan Jamieson
  * @version 25/11/2011
@@ -14,7 +14,7 @@ public class Shift {
     private final CalendarTime finish;
 
     /**
-     * Create a src.main.java.Shift object representing a shift worked between the given times on the given dates.
+     * Create a .Shift object representing a shift worked between the given times on the given dates.
      */
     public Shift(final CalendarTime start, final CalendarTime finish) {
         this.start = start;

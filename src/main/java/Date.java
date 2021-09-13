@@ -18,11 +18,11 @@ public class Date implements Comparable<Date> {
     public final static Date GREGORIAN_ADOPTION = new Date(15, 10, 1582);
 
     /**
-     * Create a src.main.java.Date representing day <em>d</em>, month <em>m</em>, and year <em>y</em>.
+     * Create a .Date representing day <em>d</em>, month <em>m</em>, and year <em>y</em>.
      */
     public Date(final int d, final int m, final int y) {
         if (!isValidDate(d, m, y)) {
-            throw new IllegalArgumentException("src.main.java.Date:src.main.java.Date(" + d + ", " + m + ", " + y + "): not a legitimate date.");
+            throw new IllegalArgumentException(".Date:.Date(" + d + ", " + m + ", " + y + "): not a legitimate date.");
         } else {
             day = d;
             month = m;
@@ -31,7 +31,7 @@ public class Date implements Comparable<Date> {
     }
 
     /**
-     * Create a src.main.java.Date that represents the same day, month and year as the other.
+     * Create a .Date that represents the same day, month and year as the other.
      */
     public Date(final Date other) {
         this.day = other.getDay();
@@ -40,10 +40,10 @@ public class Date implements Comparable<Date> {
     }
 
     /**
-     * Create a src.main.java.Date from a string of the form "[d]d/[m]m/yyyy".
+     * Create a .Date from a string of the form "[d]d/[m]m/yyyy".
      */
     public Date(final String string) {
-        final String ERR_STR = "src.main.java.Date:src.main.java.Date(" + string + "): ";
+        final String ERR_STR = ".Date:.Date(" + string + "): ";
         if (!string.matches("\\d{1,2}/\\d{1,2}/\\d\\d\\d\\d")) {
             throw new IllegalArgumentException(ERR_STR + "expected date string in format [d]d/[m]m/yyyy.");
         } else {
@@ -99,7 +99,7 @@ public class Date implements Comparable<Date> {
     }
 
     /**
-     * Obtain the src.main.java.Date that occurred the given duration before this date.
+     * Obtain the .Date that occurred the given duration before this date.
      */
     public Date subtract(final Duration duration) {
         if (duration.isNegative()) {
@@ -116,19 +116,19 @@ public class Date implements Comparable<Date> {
                 days = days - temp.getDay();
                 temp = new Date(Date.daysInMonth(temp.getMonth() - 1, temp.getYear()), temp.getMonth() - 1, temp.getYear());
             }
-            // Construction of new src.main.java.Date will throw exception if precedes 15th of October 1582 (the date that
+            // Construction of new .Date will throw exception if precedes 15th of October 1582 (the date that
             // the Gregorian calendar was first adopted (by some countries).
             try {
                 temp = new Date((int) (temp.getDay() - days), temp.getMonth(), temp.getYear());
             } catch (IllegalArgumentException illArg) {
-                throw new IllegalArgumentException("src.main.java.Date:subtract(" + duration + "): result precedes Gregorian calendar adoption");
+                throw new IllegalArgumentException(".Date:subtract(" + duration + "): result precedes Gregorian calendar adoption");
             }
             return temp;
         }
     }
 
     /**
-     * Obtain the src.main.java.Date that occurs a duration period after this date.
+     * Obtain the .Date that occurs a duration period after this date.
      */
     public Date add(final Duration duration) {
         if (duration.isNegative()) {
@@ -169,7 +169,7 @@ public class Date implements Comparable<Date> {
     }
 
     /**
-     * Obtain the src.main.java.Date that immediately follows this.
+     * Obtain the .Date that immediately follows this.
      */
     public Date next() {
         if (Date.daysToEndOfMonth(this) > 0) {
@@ -182,7 +182,7 @@ public class Date implements Comparable<Date> {
     }
 
     /**
-     * Compare this src.main.java.Date to other date, returning a -ve number if this precedes other, a zero if they are coincicent, and a positive number if other precedes this.
+     * Compare this .Date to other date, returning a -ve number if this precedes other, a zero if they are coincicent, and a positive number if other precedes this.
      */
     public int compareTo(final Date other) {
         int test = this.getYear() - other.getYear();
@@ -196,14 +196,14 @@ public class Date implements Comparable<Date> {
     }
 
     /**
-     * Obtain a hashcode for this src.main.java.Date object.
+     * Obtain a hashcode for this .Date object.
      */
     public int hashCode() {
         return this.getYear() * 365 + this.getMonth() * 30 + this.getDay();
     }
 
     /**
-     * Returns true if o is a src.main.java.Date object that represents the same date as this, and false otherwise.
+     * Returns true if o is a .Date object that represents the same date as this, and false otherwise.
      */
     public boolean equals(Object o) {
         if (!(o instanceof Date)) {

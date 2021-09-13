@@ -1,7 +1,7 @@
 
 
 /**
- * A src.main.java.Ticket object represents a car park ticket. It has a unique ID and time of issue (24 hour clock).
+ * A .Ticket object represents a car park ticket. It has a unique ID and time of issue (24 hour clock).
  *
  * @author Stephan Jamieson
  * @version 29/9/10
@@ -13,7 +13,7 @@ public class Ticket {
     private boolean valid;
 
     /**
-     * Create a new src.main.java.Ticket that has the given issue time and a unique ID.
+     * Create a new .Ticket that has the given issue time and a unique ID.
      */
     public Ticket(final Time issueTime) {
         this.id = UIDGenerator.makeUID();
@@ -21,7 +21,7 @@ public class Ticket {
     }
 
     /**
-     * Obtain the ID of this src.main.java.Ticket.
+     * Obtain the ID of this .Ticket.
      */
     public String ID() {
         return id;
@@ -43,9 +43,9 @@ public class Ticket {
 
 
     /**
-     * Obtain a String representation of this src.main.java.Ticket in the form 'src.main.java.Ticket[id="dddddddd", time="hh:mm:ss", <valid/void>]'.
+     * Obtain a String representation of this .Ticket in the form '.Ticket[id="dddddddd", time="hh:mm:ss", <valid/void>]'.
      */
     public String toString() {
-        return "src.main.java.Ticket[id=" + id + ", time=" + issueTime + "]";
+        return ".Ticket[id=" + id + ", time=" + issueTime + "]";
     }
 }

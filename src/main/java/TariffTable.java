@@ -25,7 +25,7 @@ public class TariffTable {
             tickets[index] = toAdd;
             index++;
         } else {
-            throw new IllegalArgumentException("src.main.java.Time periods must be adjacent.");
+            throw new IllegalArgumentException(".Time periods must be adjacent.");
         }
     }
 

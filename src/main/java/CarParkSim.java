@@ -3,7 +3,7 @@
 import java.util.Scanner;
 
 /**
- * The src.main.java.CarParkSim class contains the main car park simulation method.
+ * The .CarParkSim class contains the main car park simulation method.
  * It creates and manipulates the main objects, and handles user I/O.
  *
  * @author Stephan Jamieson and ...
@@ -31,11 +31,9 @@ public class CarParkSim {
         Clock c = new Clock(new Time("00:00:00"));
         long toAdvance;
         Duration b;
-
-
         int index = 0;
         String idNum;
-        // Declare variables to store a src.main.java.Clock and a src.main.java.Register object, create the relevant objects and assign them.
+        // Declare variables to store a .Clock and a .Register object, create the relevant objects and assign them.
 
         System.out.println("Car Park Simulator");
         System.out.println("The current time is " + c.examine() + ".");
@@ -75,7 +73,6 @@ public class CarParkSim {
             // If not, print error message.
             // If yes, retreive it, calculate duration of stay and print it.
             else if (input.equals("tariffs")) {
-
                 //display tariff
                 System.out.println(tariffs.toString());
             } else {

@@ -6,7 +6,7 @@ public class ParkingTariff {
     private TimePeriod Times;
     private Money Price;
 
-    //create src.main.java.ParkingTariff object
+    //create .ParkingTariff object
     public ParkingTariff(TimePeriod duration, Money costs) {
         this.Times = duration;
         this.Price = costs;
@@ -31,15 +31,15 @@ public class ParkingTariff {
     public Money getCost() {
         return Price;
     }
-     /*public boolean equals(src.main.java.ParkingTariff other){
-     if (this.Price.equals(other.Price) && this.src.main.java.Time.equals(other.src.main.java.Time)){
+     /*public boolean equals(.ParkingTariff other){
+     if (this.Price.equals(other.Price) && this..Time.equals(other..Time)){
      return true;
      }
      return false;
      
      }
      public String toString(){
-     return ("["+this.src.main.java.Time+":"+this.Price+"]");
+     return ("["+this..Time+":"+this.Price+"]");
      }
     */
 

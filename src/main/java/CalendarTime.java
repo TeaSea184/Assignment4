@@ -13,7 +13,7 @@ public class CalendarTime implements Comparable<CalendarTime> {
     private final Time time;
 
     /**
-     * Create a src.main.java.CalendarTime object that represents the given date and time.
+     * Create a .CalendarTime object that represents the given date and time.
      */
     public CalendarTime(final Date date, final Time time) {
         this.date = date;
@@ -21,8 +21,8 @@ public class CalendarTime implements Comparable<CalendarTime> {
     }
 
     /**
-     * Create a src.main.java.CalendarTime object from a String of the form "&lt;date&gt;%&lt;time&gt;".
-     * See the src.main.java.Date and src.main.java.Time classes for further details of format.
+     * Create a .CalendarTime object from a String of the form "&lt;date&gt;%&lt;time&gt;".
+     * See the .Date and .Time classes for further details of format.
      */
     public CalendarTime(final String string) {
         final Scanner scanner = new Scanner(string);
@@ -46,7 +46,7 @@ public class CalendarTime implements Comparable<CalendarTime> {
     }
 
     /**
-     * Subtract given src.main.java.CalendarTime from this src.main.java.CalendarTime.
+     * Subtract given .CalendarTime from this .CalendarTime.
      */
     public Duration subtract(final CalendarTime other) {
         Duration duration = this.time().subtract(other.time());
@@ -55,7 +55,7 @@ public class CalendarTime implements Comparable<CalendarTime> {
     }
 
     /**
-     * Add the given duration to this src.main.java.CalendarTime.
+     * Add the given duration to this .CalendarTime.
      */
     public CalendarTime add(final Duration duration) {
         if (duration.isNegative()) {
@@ -71,7 +71,7 @@ public class CalendarTime implements Comparable<CalendarTime> {
     }
 
     /**
-     * Subtract the given duration from this src.main.java.CalendarTime.
+     * Subtract the given duration from this .CalendarTime.
      */
     public CalendarTime subtract(final Duration duration) {
         if (duration.isNegative()) {
@@ -101,7 +101,7 @@ public class CalendarTime implements Comparable<CalendarTime> {
     }
 
     /**
-     * Returns true if <em>o</em> is a src.main.java.CalendarTime object representing the same date and time as this src.main.java.CalendarTime object.
+     * Returns true if <em>o</em> is a .CalendarTime object representing the same date and time as this .CalendarTime object.
      */
     public boolean equals(Object o) {
         if (!(o instanceof CalendarTime)) {
@@ -113,8 +113,8 @@ public class CalendarTime implements Comparable<CalendarTime> {
     }
 
     /**
-     * Compare this src.main.java.CalendarTime object to the other src.main.java.CalendarTime object. Returns a -ve value if this src.main.java.CalendarTime
-     * precedes the other src.main.java.CalendarTime, zero if they are equivalent, and a +ve value if this src.main.java.CalendarTime follows the other src.main.java.CalendarTime.
+     * Compare this .CalendarTime object to the other .CalendarTime object. Returns a -ve value if this .CalendarTime
+     * precedes the other .CalendarTime, zero if they are equivalent, and a +ve value if this .CalendarTime follows the other .CalendarTime.
      */
     public int compareTo(CalendarTime other) {
         int result = this.date().compareTo(other.date());
@@ -125,7 +125,7 @@ public class CalendarTime implements Comparable<CalendarTime> {
     }
 
     /**
-     * Obtain a string representation of this src.main.java.CalendarTime in the form "&lt;date&gt; &lt;time&gt;".
+     * Obtain a string representation of this .CalendarTime in the form "&lt;date&gt; &lt;time&gt;".
      */
     public String toString() {
         return date.toString() + "%" + time.toString();

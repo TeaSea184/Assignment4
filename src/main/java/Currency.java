@@ -1,7 +1,7 @@
 
 
 /**
- * <p>An object of this class represents a src.main.java.Currency such as US Dollars or British Pound Stirling.</p>
+ * <p>An object of this class represents a .Currency such as US Dollars or British Pound Stirling.</p>
  *
  * <p>A currency has a description/name, an ISO 4217 currency code and a symbol denoting the currency's major unit.
  * Many currencies have a minor (or fractional) unit such as the cent in the case of US dollars.
@@ -33,7 +33,7 @@ public class Currency {
     private final static char MINUS_SIGN = '-';
 
     /**
-     * Create a src.main.java.Currency object that represents the currency with
+     * Create a .Currency object that represents the currency with
      * the given unit symbol (e.g. "$" for US Dollars), ISO 4217 code
      * and number of minor units per major units (e.g. 100 in the case of pennies per British Pound).
      *
@@ -42,7 +42,7 @@ public class Currency {
      * @param minorPerMajor number of minor units per major unit (A power of 10 is expected).
      */
     public Currency(String symbol, String code, int minorPerMajor) {
-        final String ERR_STR = "src.main.java.Currency(" + symbol + ", " + code + ", " + minorPerMajor + "):";
+        final String ERR_STR = ".Currency(" + symbol + ", " + code + ", " + minorPerMajor + "):";
 
         // Check that none of the String parameters are null.
         if (symbol == null || code == null) {
@@ -97,7 +97,7 @@ public class Currency {
      *
      * <p>So for example, assuming</p>
      * <pre>
-     * src.main.java.Currency USD = new src.main.java.Currency("$", "USD", 100);
+     * .Currency USD = new .Currency("$", "USD", 100);
      * </pre>
      *
      * <p>The expression</p>
@@ -124,7 +124,7 @@ public class Currency {
      * <p>
      * So for example, assuming
      * <pre>
-     * src.main.java.Currency USD = new src.main.java.Currency("$", "USD", 100);
+     * .Currency USD = new .Currency("$", "USD", 100);
      * </pre>
      * <p>
      * The expression
@@ -192,7 +192,7 @@ public class Currency {
 
         // Check symbol
         if (!temp.startsWith(this.symbol())) {
-            throw new IllegalArgumentException("src.main.java.Currency:parseString(" + amount + "): wrong currency symbol or currency symbol missing/misplaced?");
+            throw new IllegalArgumentException(".Currency:parseString(" + amount + "): wrong currency symbol or currency symbol missing/misplaced?");
         }
         temp = temp.substring(this.symbol().length()).trim();
 
@@ -206,7 +206,7 @@ public class Currency {
             // We have a fractional portion.
             // Check fractional portion has correct number of digits.
             if (temp.length() - (pointPos + 1) != this.fractionDigits()) {
-                throw new IllegalArgumentException("src.main.java.Currency:parseString(" + amount + "): wrong number of fraction digits or are whitespace or other characters present?");
+                throw new IllegalArgumentException(".Currency:parseString(" + amount + "): wrong number of fraction digits or are whitespace or other characters present?");
             }
 
             // Correct number of digits, remove decimal point from string.

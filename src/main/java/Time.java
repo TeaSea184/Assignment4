@@ -3,7 +3,7 @@
 import java.util.Scanner;
 
 /**
- * A src.main.java.Time object represents a twenty four hour clock reading composed of hours, minutes and seconds.
+ * A .Time object represents a twenty four hour clock reading composed of hours, minutes and seconds.
  *
  * @author Stephan Jamieson
  * @version 30/5/10
@@ -18,13 +18,13 @@ public class Time implements Comparable<Time> {
 
 
     /**
-     * Create a src.main.java.Time object from the given duration.
+     * Create a .Time object from the given duration.
      * <p>
      * The given value is mapped onto the twenty four hour clock. So for example, a duration of
-     * 7 hours, 5 minutes produces a src.main.java.Time object representing the value 07:05.
+     * 7 hours, 5 minutes produces a .Time object representing the value 07:05.
      * <p>
      * If the given value exceeds a twenty four hour period then it is "wrapped around".
-     * So for example, a duration of 25.5 hours produces a src.main.java.Time object representing the value 01:30.
+     * So for example, a duration of 25.5 hours produces a .Time object representing the value 01:30.
      * <p>
      * If the given value is negative then it is added to 24 hours to get a time.
      *
@@ -39,14 +39,14 @@ public class Time implements Comparable<Time> {
     }
 
     /**
-     * Create a src.main.java.Time object representing the given time in hours and minutes.
+     * Create a .Time object representing the given time in hours and minutes.
      */
     public Time(int hours, int minutes) {
         this(hours, minutes, 0);
     }
 
     /**
-     * Create a src.main.java.Time object representing the given time in hours, minutes and seconds.
+     * Create a .Time object representing the given time in hours, minutes and seconds.
      */
     public Time(int hours, int minutes, int seconds) {
         time = (new Duration("hour", hours)).add(new Duration("minute", minutes))
@@ -89,21 +89,21 @@ public class Time implements Comparable<Time> {
     }
 
     /**
-     * Translate this src.main.java.Time object into the equivalent src.main.java.Duration.
+     * Translate this .Time object into the equivalent .Duration.
      */
     public Duration asDuration() {
         return new Duration(this.time);
     }
 
     /**
-     * Obtain the src.main.java.Time that results from adding the given period to this src.main.java.Time.
+     * Obtain the .Time that results from adding the given period to this .Time.
      */
     public Time add(Duration duration) {
         return new Time(this.asDuration().add(duration));
     }
 
     /**
-     * Obtain the src.main.java.Time that results from subtracting the given period from this src.main.java.Time.
+     * Obtain the .Time that results from subtracting the given period from this .Time.
      */
     public Time subtract(Duration duration) {
         return new Time(this.asDuration().subtract(duration));
@@ -118,7 +118,7 @@ public class Time implements Comparable<Time> {
     }
 
     /**
-     * Returns true if the given object is a src.main.java.Time object and represents the same time value as this src.main.java.Time
+     * Returns true if the given object is a .Time object and represents the same time value as this .Time
      * object, otherwise returns false.
      */
     public boolean equals(Object o) {
@@ -138,8 +138,8 @@ public class Time implements Comparable<Time> {
     }
 
     /**
-     * Compare this src.main.java.Time object with the other src.main.java.Time object, returning -1, 0 or 1, depending on whether this
-     * src.main.java.Time precedes, is equal to, or exceeds the other time value.
+     * Compare this .Time object with the other .Time object, returning -1, 0 or 1, depending on whether this
+     * .Time precedes, is equal to, or exceeds the other time value.
      */
     public int compareTo(Time other) {
         return this.asDuration().compareTo(other.asDuration());
@@ -154,7 +154,7 @@ public class Time implements Comparable<Time> {
     }
 
     /**
-     * Obtain a String representation of this src.main.java.Time.
+     * Obtain a String representation of this .Time.
      */
     public String toString() {
         return format(this.getHours()) + ":" + format(this.getMinutes()) + ":" + format(this.getSeconds());
