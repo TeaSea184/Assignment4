@@ -21,11 +21,11 @@ public class TariffTable {
         if (index == 0) {
             tickets[index] = toAdd;
             index++;
-        } else if ((tickets[index - 1].getTime()).precedes(period)) {
+        } else if ((tickets[index - 1].getTime()).precedes(period) && (period).adjacent(tickets[index-1].getTime())) {
             tickets[index] = toAdd;
             index++;
         } else {
-            throw new IllegalArgumentException(".Time periods must be adjacent.");
+            throw new IllegalArgumentException("Tariff periods must be adjacent.");
         }
     }
 
