@@ -3,6 +3,7 @@
 //8 September 2021
 
 import java.util.*;
+import java.util.Date;
 
 public class Employee {
     private String name;
@@ -23,7 +24,7 @@ public class Employee {
         return name;
     }
 
-    public String uid() {return uid;}
+    public String UID() {return uid;}
 
     public void signIn(Date d, Time t) {
         startTime = new CalendarTime(d, t);
@@ -41,6 +42,9 @@ public class Employee {
             return true;
         }
         return false;
+    }
+    public boolean present(Date d){
+        return (startTime.equals(d));
     }
 
     public boolean worked(Date d) {
