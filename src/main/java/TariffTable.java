@@ -42,29 +42,17 @@ public class TariffTable {
 
     //convert Tariff table to string with certain format
     public String toString() {
-        // if there are no tariffs
-        if (tickets == null) {
-            return all;
-        } else {
-            //make first tariff a string
-            all = tickets[0].getTime().toString() + " : " + tickets[0].getCost() + "\n";
-            //make rest of tariffs strings
-            if (tickets.length > 1) {
-                int j = 1;
-                while (j < tickets.length) {
-                    //if it is the last tariff
-                    if (j == tickets.length - 1) {
-                        all = all + tickets[j].getTime().toString() + " : " + tickets[j].getCost();
-                    }
-                    //if it is not the last tariff
-                    else {
-                        all = all + tickets[j].getTime().toString() + " : " + tickets[j].getCost() + "\n";
-                    }
-                    j++;
-                }
+        final StringBuilder output = new StringBuilder(400);
+        for (int tariffCounter =0; tariffCounter< tickets.length;tariffCounter++){
+            final ParkingTariff currentTariff = tickets[tariffCounter];
+            if (currentTariff != null){
+                output.append(currentTariff.getTime())
+                        .append(" : ")
+                        .append(currentTariff.getCost());
             }
-            return all;
+
         }
+       return output.toString();
     }
 
 }
