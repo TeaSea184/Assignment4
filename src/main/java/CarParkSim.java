@@ -10,15 +10,29 @@ import java.util.Scanner;
  * @version 14/7/2019
  */
 public class CarParkSim {
-
+    public static final Currency currency = new Currency("R", "ZAR", 100);
+    public static TariffTable tariffs = new TariffTable(11);
+    static {
+        //adding tariffs
+        tariffs.addTariff(new TimePeriod(new Duration("minute", 0), new Duration("minute", 30)), new Money("R10.00", currency));
+        tariffs.addTariff(new TimePeriod(new Duration("minute", 30), new Duration("hour", 1)), new Money("R15.00", currency));
+        tariffs.addTariff(new TimePeriod(new Duration("hour", 1), new Duration("hour", 3)), new Money("R20.00", currency));
+        tariffs.addTariff(new TimePeriod(new Duration("hour", 3), new Duration("hour", 4)), new Money("R30.00", currency));
+        tariffs.addTariff(new TimePeriod(new Duration("hour", 4), new Duration("hour", 5)), new Money("R40.00", currency));
+        tariffs.addTariff(new TimePeriod(new Duration("hour", 5), new Duration("hour", 6)), new Money("R50.00", currency));
+        tariffs.addTariff(new TimePeriod(new Duration("hour", 6), new Duration("hour", 8)), new Money("R60.00", currency));
+        tariffs.addTariff(new TimePeriod(new Duration("hour", 8), new Duration("hour", 10)), new Money("R70.00", currency));
+        tariffs.addTariff(new TimePeriod(new Duration("hour", 10), new Duration("hour", 12)), new Money("R90.00", currency));
+        tariffs.addTariff(new TimePeriod(new Duration("hour", 12), new Duration("day", 1)), new Money("R100.00", currency));
+    }
     public static void main(final String[] args) {
         final Scanner keyboard = new Scanner(System.in);
         Register r = new Register();
         Clock c = new Clock(new Time("00:00:00"));
         long toAdvance;
         Duration b;
-        final Currency currency = new Currency("R", "ZAR", 100);
-        TariffTable tariffs = new TariffTable(11);
+
+
         int index = 0;
         String idNum;
         // Declare variables to store a src.main.java.Clock and a src.main.java.Register object, create the relevant objects and assign them.
@@ -51,17 +65,7 @@ public class CarParkSim {
                     String currTime = c.examine().toString();
                     System.out.println("Current time: " + currTime + ".");
                     System.out.println("Duration of stay: " + d.format(d, "minute") + ".");
-                    //adding tariffs
-                    tariffs.addTariff(new TimePeriod(new Duration("minute", 0), new Duration("minute", 30)), new Money("R10.00", currency));
-                    tariffs.addTariff(new TimePeriod(new Duration("minute", 30), new Duration("hour", 1)), new Money("R15.00", currency));
-                    tariffs.addTariff(new TimePeriod(new Duration("hour", 1), new Duration("hour", 3)), new Money("R20.00", currency));
-                    tariffs.addTariff(new TimePeriod(new Duration("hour", 3), new Duration("hour", 4)), new Money("R30.00", currency));
-                    tariffs.addTariff(new TimePeriod(new Duration("hour", 4), new Duration("hour", 5)), new Money("R40.00", currency));
-                    tariffs.addTariff(new TimePeriod(new Duration("hour", 5), new Duration("hour", 6)), new Money("R50.00", currency));
-                    tariffs.addTariff(new TimePeriod(new Duration("hour", 6), new Duration("hour", 8)), new Money("R60.00", currency));
-                    tariffs.addTariff(new TimePeriod(new Duration("hour", 8), new Duration("hour", 10)), new Money("R70.00", currency));
-                    tariffs.addTariff(new TimePeriod(new Duration("hour", 10), new Duration("hour", 12)), new Money("R90.00", currency));
-                    tariffs.addTariff(new TimePeriod(new Duration("hour", 12), new Duration("day", 1)), new Money("R100.00", currency));
+
                     System.out.println("Cost of stay: " + tariffs.getTariff(d) + ".");
                 } else {
                     System.out.println("Invalid ticket ID.");
