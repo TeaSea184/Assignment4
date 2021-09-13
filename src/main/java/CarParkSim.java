@@ -32,7 +32,6 @@ public class CarParkSim {
         long toAdvance;
         Duration b;
         int index = 0;
-        String idNum;
         // Declare variables to store a .Clock and a .Register object, create the relevant objects and assign them.
 
         System.out.println("Car Park Simulator");
@@ -49,12 +48,12 @@ public class CarParkSim {
                 System.out.println("The current time is " + c.examine().toString() + ".");
                 // Advance the clock, print the current time.
             } else if (input.equals("arrive")) {
-                idNum = UIDGenerator.makeUID();
                 Ticket t = new Ticket(c.examine());
                 r.add(t);
                 System.out.println("Ticket issued: " + t.toString() + ".");
+            }
                 // Create a new ticket, add it to the register, print details of ticket issued.
-            } else if (input.equals("depart")) {
+                else if (input.equals("depart")){
                 String userID = keyboard.next();
                 if (r.contains(userID)) {
                     Ticket k = r.retrieve(userID);
@@ -63,7 +62,6 @@ public class CarParkSim {
                     String currTime = c.examine().toString();
                     System.out.println("Current time: " + currTime + ".");
                     System.out.println("Duration of stay: " + d.format(d, "minute") + ".");
-
                     System.out.println("Cost of stay: " + tariffs.getTariff(d) + ".");
                 } else {
                     System.out.println("Invalid ticket ID.");
