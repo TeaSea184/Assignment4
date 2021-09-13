@@ -52,7 +52,7 @@ public class TariffTable {
                         .append('\n');
             }
             else{
-                output.append(" ");
+                output.append("");
             }
 
         }
