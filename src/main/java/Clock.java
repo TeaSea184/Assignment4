@@ -1,21 +1,22 @@
 
+
 /**
- * A Clock object is used to simulate time and the passing of time.
- * 
+ * A src.main.java.Clock object is used to simulate time and the passing of time.
+ * <p>
  * A clock is set to a given time, it can be examined, and the time advanced.
- * 
+ *
  * @author Stephan
  * @version (a version number or a date)
  */
 public class Clock {
 
     private Time currentTime;
-    
+
     /**
-     * Create a Clock object set to midnight.
+     * Create a src.main.java.Clock object set to midnight.
      */
     public Clock(final Time time) {
-        this.currentTime=time;
+        this.currentTime = time;
     }
 
     /**
@@ -30,5 +31,5 @@ public class Clock {
      */
     public Time examine() {
         return currentTime;
-    }    
+    }
 }
