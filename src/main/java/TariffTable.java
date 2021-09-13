@@ -51,6 +51,9 @@ public class TariffTable {
                         .append(currentTariff.getCost())
                         .append('\n');
             }
+            else{
+                output.append(" ");
+            }
 
         }
        final String response =  output.toString();
