@@ -42,7 +42,7 @@ public class TariffTable {
 
     //convert Tariff table to string with certain format
     public String toString() {
-        final StringBuilder output = new StringBuilder(400);
+        final StringBuilder output = new StringBuilder(tickets.length);
         for (int tariffCounter =0; tariffCounter< tickets.length;tariffCounter++){
             final ParkingTariff currentTariff = tickets[tariffCounter];
             if (currentTariff != null){
