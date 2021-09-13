@@ -48,11 +48,13 @@ public class TariffTable {
             if (currentTariff != null){
                 output.append(currentTariff.getTime())
                         .append(" : ")
-                        .append(currentTariff.getCost());
+                        .append(currentTariff.getCost())
+                        .append('\n');
             }
 
         }
-       return output.toString();
+       final String response =  output.toString();
+        return response.substring(0,response.length()-1);
     }
 
 }
