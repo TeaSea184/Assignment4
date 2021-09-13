@@ -62,7 +62,7 @@ public class CarParkSim {
                     String currTime = c.examine().toString();
                     System.out.println("Current time: " + currTime + ".");
                     System.out.println("Duration of stay: " + d.format(d, "minute") + ".");
-                    System.out.println("Cost of stay: " + tariffs.getTariff(d) + ".");
+                    System.out.println("Cost of stay : " + tariffs.getTariff(d) + ".");
                 } else {
                     System.out.println("Invalid ticket ID.");
                 }
