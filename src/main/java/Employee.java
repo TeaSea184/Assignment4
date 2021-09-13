@@ -35,7 +35,7 @@ public class Employee {
     }
 
     public boolean present() {
-        if (startTime != null) {
+        if ((startTime != null) && (endTime == null)) {
             return true;
         }
         return false;
