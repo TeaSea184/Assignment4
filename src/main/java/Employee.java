@@ -9,13 +9,12 @@ public class Employee {
     private String uid;
     private CalendarTime startTime;
     private CalendarTime endTime;
-    private Shift newShift;
     private List<Shift> shifts;
 
     public Employee(String name, String uid) {
         this.name = name;
         this.uid = uid;
-        this.shifts = new ArrayList<Shift>();
+
         ;
 
     }
@@ -24,9 +23,7 @@ public class Employee {
         return name;
     }
 
-    public void uid() {
-        this.uid = uid;
-    }
+    public String uid() {return uid;}
 
     public void signIn(Date d, Time t) {
         startTime = new CalendarTime(d, t);
@@ -34,7 +31,8 @@ public class Employee {
 
     public void signOut(Date d, Time t) {
         endTime = new CalendarTime(d, t);
-        this.newShift = new Shift(startTime, endTime);
+        Shift newShift = new Shift(startTime, endTime);
+        shifts = new ArrayList<Shift>();
         shifts.add(newShift);
     }
 
@@ -54,14 +52,13 @@ public class Employee {
     }
 
     public List<Shift> get(Date d) {
+        List<Shift> sameDates = new ArrayList<Shift>();
         for (Shift f : shifts) {
             if (worked(d)) {
-                List<Shift> sameDates = new ArrayList<Shift>();
                 sameDates.add(f);
-                return sameDates;
             }
         }
-        return null;
+        return sameDates;
     }
 
     public List<Shift> get(Week w) {
