@@ -31,17 +31,19 @@ public class ParkingTariff {
     public Money getCost() {
         return Price;
     }
-     /*public boolean equals(.ParkingTariff other){
-     if (this.Price.equals(other.Price) && this..Time.equals(other..Time)){
+    //check if two tariffs are equal
+     public boolean equals(ParkingTariff other){
+     if (this.Price.equals(other.Price) && this.getTime().equals(other.getTime())){
      return true;
      }
      return false;
      
      }
+     //convert tariff to string
      public String toString(){
-     return ("["+this..Time+":"+this.Price+"]");
+     return ("["+this.getTime()+":"+this.getCost()+"]");
      }
-    */
+
 
 }
      
