@@ -25,5 +25,9 @@ public class EmployeeTest {
         Assertions.assertTrue(e1.worked(new Week(32,2019)));
         Assertions.assertTrue(e1.worked(new Week(33,2019)));
         Assertions.assertFalse(e1.worked(new Week(34,2019)));
+
+        Duration expectedWorkMinutes = new Duration("minute",1046);
+        Assertions.assertEquals(expectedWorkMinutes.intValue(),e1.hours(new Week(27,2019)).intValue());
     }
+
 }
