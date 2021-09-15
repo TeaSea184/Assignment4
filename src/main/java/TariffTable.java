@@ -43,23 +43,23 @@ public class TariffTable {
     //convert Tariff table to string with certain format
     public String toString() {
         final StringBuilder output = new StringBuilder(tickets.length);
-        for (int tariffCounter =0; tariffCounter< tickets.length;tariffCounter++){
+        for (int tariffCounter = 0; tariffCounter < tickets.length; tariffCounter++) {
             final ParkingTariff currentTariff = tickets[tariffCounter];
-            if (currentTariff != null){
+            if (currentTariff != null) {
                 output.append(currentTariff.getTime())
                         .append(" : ")
                         .append(currentTariff.getCost())
                         .append('\n');
             }
-            else{
-                output.append("");
-            }
 
         }
-       final String response =  output.toString();
-        return response.substring(0,response.length()-1);
+        final String response = output.toString();
+        if (response.length() > 0) {
+            return response.substring(0, response.length() - 1);
+        } else {
+            return "";
+        }
     }
-
 }
     
    
