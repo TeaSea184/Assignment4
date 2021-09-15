@@ -12,7 +12,7 @@ public class Register {
         numTickets = 0;
     }
 
-    //a ticket to the lsit
+    //a ticket to the list
     public void add(Ticket ticket) {
         tickets[numTickets] = ticket;
         numTickets++;
