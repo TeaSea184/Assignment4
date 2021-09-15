@@ -49,7 +49,7 @@ public class Employee {
     public boolean worked(Date d) {
         for (int i = 0; i < shifts.size();i++) {
             final Shift currentShift = shifts.get(i);
-            if (d.equals(currentShift.start().date()) || (d.equals(currentShift.finish().date()))){
+            if (currentShift.includesDate(d) || (currentShift.includesDate(d))){
                 return true;
             }
 
