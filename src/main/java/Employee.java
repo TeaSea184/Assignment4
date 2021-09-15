@@ -10,11 +10,12 @@ public class Employee {
     private String uid;
     private CalendarTime startTime;
     private CalendarTime endTime;
-    private List<Shift> shifts;
+    private final List<Shift> shifts;
 
     public Employee(String name, String uid) {
         this.name = name;
         this.uid = uid;
+        shifts = new ArrayList<Shift>();
     }
     //return name
     public String name() {
@@ -30,7 +31,7 @@ public class Employee {
     public void signOut(Date d, Time t) {
         endTime = new CalendarTime(d, t);
         Shift newShift = new Shift(startTime, endTime);
-        shifts = new ArrayList<Shift>();
+
         shifts.add(newShift);
     }
     //check if an employee is present
@@ -46,11 +47,25 @@ public class Employee {
     }
     //check if Employee worked on a date
     public boolean worked(Date d) {
-        return (startTime.date().equals(d));
+        for (int i = 0; i < shifts.size();i++) {
+            final Shift currentShift = shifts.get(i);
+            if (d.equals(currentShift.start().date()) || (d.equals(currentShift.finish().date()))){
+                return true;
+            }
+
+        }
+        return false;
     }
     //check if Employee worked in a week
     public boolean worked(Week w) {
-        return (w.includes(startTime.date()));
+        for (int i = 0; i<shifts.size();i++) {
+            final Shift currentShift = shifts.get(i);
+            if (w.includes(currentShift.start().date()) || (w.includes(currentShift.finish().date()))){
+
+                return true;
+            }
+        }
+        return false;
     }
     //return a list of shifts worked on a date
     public List<Shift> get(Date d) {
