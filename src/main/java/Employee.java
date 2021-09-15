@@ -90,10 +90,10 @@ public class Employee {
     // return the amount of hours worked in a week
     public Duration hours(Week w) {
         List<Shift> sameWeek = get(w);
-        Duration totalHoursWorked = null;
+        Duration totalHoursWorked = new Duration("hours",0);
         for (Shift f : sameWeek) {
             Duration shiftTime = f.length();
-            totalHoursWorked.add(shiftTime);
+            totalHoursWorked = totalHoursWorked.add(shiftTime);
         }
         return totalHoursWorked;
     }
